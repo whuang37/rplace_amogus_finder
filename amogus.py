@@ -118,7 +118,7 @@ def find_amogus(im, amogus_maps):
     w, h = im.size
     darken_map = Image.new("RGBA", (w,h))
     darken_map_pixel_data = list(darken_map.convert("RGBA").getdata())
-    darken_map_pixel_data = [(0,0,0, 155) for _ in range(len(darken_map_pixel_data))]
+    darken_map_pixel_data = [(0,0,0, 185) for _ in range(len(darken_map_pixel_data))]
     counter = 0
     n_amogus = 0
     found_map = {}
@@ -127,10 +127,10 @@ def find_amogus(im, amogus_maps):
             found = 0
             counter += 1
             if counter % 10000 == 0:
-                print(f"pixel {counter}")
+                print(f"On Pixel ({i}, {j})")
             # go through all possible amoguses
             for a_map in amogus_maps:
-                if (i + 6 > w-1) or (j + 7 > h-1):
+                if (i + 4 > w-1) or (j + 5 > h-1):
                     continue
                 # go through all possible orientations
                 for orientation, a_map_orient in a_map.items():
